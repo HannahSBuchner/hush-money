@@ -6,11 +6,25 @@ import {connect} from 'react-redux'
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email} = props
+  const {email, account} = props
 
   return (
-    <div>
-      <h3>Welcome, {email}</h3>
+    <div className="acctbox">
+      <div className="acctheader">
+        <h1>
+          Hey, {email}! <br /> You've earned:
+        </h1>
+      </div>
+      <div className="account">
+        <h1 className="amount">$0.00</h1>
+      </div>
+      <div className="buttons">
+        <button className="addbutton">+</button>
+        <button className="decbutton">-</button>
+      </div>
+      <div className="acctheader">
+        <h1>You've got enough to buy one of the following:</h1>
+      </div>
     </div>
   )
 }
