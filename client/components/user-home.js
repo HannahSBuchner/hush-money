@@ -6,17 +6,17 @@ import {connect} from 'react-redux'
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email, account} = props
+  const {name, balance} = props
 
   return (
     <div className="acctbox">
       <div className="acctheader">
         <h1>
-          Hey, {email}! <br /> You've earned:
+          Hey, {name}! <br /> You've earned:
         </h1>
       </div>
       <div className="account">
-        <h1 className="amount">$0.00</h1>
+        <h1 className="amount">${balance}</h1>
       </div>
       <div className="buttons">
         <button className="addbutton">+</button>
@@ -34,7 +34,8 @@ export const UserHome = props => {
  */
 const mapState = state => {
   return {
-    email: state.user.email
+    name: state.user.name,
+    balance: state.user.balance
   }
 }
 

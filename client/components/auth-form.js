@@ -8,10 +8,16 @@ import {auth} from '../store'
  */
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
-
+  console.log(name)
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
+        <div>
+          <label htmlFor="name">
+            <small>Name</small>
+          </label>
+          <input name="firstname" type="text" />
+        </div>
         <div>
           <label htmlFor="email">
             <small>Email</small>
@@ -62,9 +68,11 @@ const mapDispatch = dispatch => {
     handleSubmit(evt) {
       evt.preventDefault()
       const formName = evt.target.name
+      console.log('formName=', formName)
+      const name = evt.target.firstname.value
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
+      dispatch(auth(name, email, password, formName))
     }
   }
 }
