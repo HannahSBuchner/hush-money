@@ -34,7 +34,7 @@ form div {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 25px;
   padding-left: 20px;
   /* color: #570683; */
   font-family: 'Permanent Marker', cursive;
@@ -48,10 +48,12 @@ form div {
   display: flex;
   justify-content: center;
   font-family: 'Permanent Marker', cursive;
+  margin-top: 10px;
 }
 .amount {
   font-size: 100px;
   margin-bottom: 0px;
+  margin-top: 5px;
 }
 .buttons {
   display: flex;

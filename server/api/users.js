@@ -15,3 +15,34 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/increase', async (req, res, next) => {
+  try {
+    console.log('REQ.USER:', req.user)
+    if (req.user) {
+      const user = await User.findOne({where: {id: req.user.id}})
+      user.balance += 25
+      await user.save()
+      res.json(user)
+    } else {
+      res.sendStatus(404)
+    }
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.put('/decrease', async (req, res, next) => {
+  try {
+    if (req.user) {
+      const user = await User.findOne({where: {id: req.user.id}})
+      user.balance -= 25
+      await user.save()
+      res.json(user)
+    } else {
+      res.sendStatus(404)
+    }
+  } catch (error) {
+    next(error)
+  }
+})

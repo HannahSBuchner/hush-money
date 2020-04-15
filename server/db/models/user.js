@@ -34,11 +34,11 @@ const User = db.define('user', {
   balance: {
     type: Sequelize.INTEGER,
     allowNull: false,
-    defaultValue: 0,
-    get() {
-      const pennies = this.getDataValue('balance')
-      return pennies / 100
-    }
+    defaultValue: 0
+    // get() {
+    //   const pennies = this.getDataValue('balance')
+    //   return pennies / 100
+    // }
   }
 })
 

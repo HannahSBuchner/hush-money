@@ -6,6 +6,8 @@ import history from '../history'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
+const INCREASE_USER_BALANCE = 'INCREASE_USER_BALANCE'
+const DECREASE_USER_BALANCE = 'DECREASE_USER_BALANCE'
 
 /**
  * INITIAL STATE
@@ -17,6 +19,8 @@ const defaultUser = {}
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
+const increaseUserBalance = user => ({type: INCREASE_USER_BALANCE, user})
+const decreaseUserBalance = user => ({type: DECREASE_USER_BALANCE, user})
 
 /**
  * THUNK CREATORS
@@ -57,6 +61,23 @@ export const logout = () => async dispatch => {
   }
 }
 
+export const increaseThunk = () => async dispatch => {
+  try {
+    console.log('in the increase thunk')
+    const {data} = await axios.put('api/users/increase')
+    dispatch(increaseUserBalance(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+export const decreaseThunk = () => async dispatch => {
+  try {
+    const {data} = await axios.put('api/users/decrease')
+    dispatch(decreaseUserBalance(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
 /**
  * REDUCER
  */
@@ -66,6 +87,10 @@ export default function(state = defaultUser, action) {
       return action.user
     case REMOVE_USER:
       return defaultUser
+    case INCREASE_USER_BALANCE:
+      return action.user
+    case DECREASE_USER_BALANCE:
+      return action.user
     default:
       return state
   }
