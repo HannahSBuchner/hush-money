@@ -54,6 +54,7 @@
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.7.2",
     "psql": "0.0.1",
+    "puppeteer": "^2.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",

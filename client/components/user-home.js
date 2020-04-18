@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {increaseThunk, decreaseThunk} from '../store/user'
+import {ProductsGrid} from './index'
 
 /**
  * COMPONENT
@@ -39,6 +40,7 @@ class UserHome extends Component {
         <div className="acctheader">
           <h1>You've got enough to buy one of the following:</h1>
         </div>
+        <ProductsGrid />
       </div>
     )
   }
