@@ -11,31 +11,51 @@ const AuthForm = props => {
   console.log(name)
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="name">
-            <small>Name</small>
-          </label>
-          <input name="firstname" type="text" />
-        </div>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
-      <a href="/auth/google">{displayName} with Google</a>
+      {name === 'signup' ? (
+        <form onSubmit={handleSubmit} name={name}>
+          <div>
+            <label htmlFor="name">
+              <small>Name</small>
+            </label>
+            <input name="firstname" type="text" />
+          </div>
+          <div>
+            <label htmlFor="email">
+              <small>Email</small>
+            </label>
+            <input name="email" type="text" />
+          </div>
+          <div>
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" />
+          </div>
+          <div>
+            <button type="submit">{displayName}</button>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
+        </form>
+      ) : (
+        <form onSubmit={handleSubmit} name={name}>
+          <div>
+            <label htmlFor="email">
+              <small>Email</small>
+            </label>
+            <input name="email" type="text" />
+          </div>
+          <div>
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" />
+          </div>
+          <div>
+            <button type="submit">{displayName}</button>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
+        </form>
+      )}
     </div>
   )
 }
@@ -67,12 +87,20 @@ const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      const formName = evt.target.name
-      console.log('formName=', formName)
-      const name = evt.target.firstname.value
-      const email = evt.target.email.value
-      const password = evt.target.password.value
-      dispatch(auth(name, email, password, formName))
+      if (evt.target.firstname) {
+        const formName = evt.target.name
+        console.log('formName=', formName)
+        const name = evt.target.firstname.value
+        const email = evt.target.email.value
+        const password = evt.target.password.value
+        dispatch(auth(name, email, password, formName))
+      } else {
+        const formName = evt.target.name
+        console.log('formName=', formName)
+        const email = evt.target.email.value
+        const password = evt.target.password.value
+        dispatch(auth(name, email, password, formName))
+      }
     }
   }
 }

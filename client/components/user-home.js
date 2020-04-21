@@ -2,12 +2,26 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {increaseThunk, decreaseThunk} from '../store/user'
+import {getAllToys} from '../store/toy'
 import {ProductsGrid} from './index'
 
 /**
  * COMPONENT
  */
 class UserHome extends Component {
+  constructor(props) {
+    super(props)
+    this.handleDecrease = this.handleDecrease.bind(this)
+    this.handleIncrease = this.handleIncrease.bind(this)
+  }
+  handleDecrease() {
+    this.props.decreaseThunk()
+    this.props.getAllToys()
+  }
+  handleIncrease() {
+    this.props.increaseThunk()
+    this.props.getAllToys()
+  }
   render() {
     const {balance, name} = this.props
 
@@ -25,20 +39,25 @@ class UserHome extends Component {
           <button
             className="addbutton"
             type="button"
-            onClick={() => this.props.increaseThunk()}
+            onClick={() => this.handleIncrease()}
           >
             +
           </button>
           <button
             className="decbutton"
             type="button"
-            onClick={() => this.props.decreaseThunk()}
+            onClick={() => this.handleDecrease()}
           >
             -
           </button>
         </div>
+        <br />
+        <div className="resetbutton">
+          <button className="reset">Reset</button>
+        </div>
+
         <div className="acctheader">
-          <h1>You've got enough to buy one of the following:</h1>
+          <h1>You've got enough to buy a...</h1>
         </div>
         <ProductsGrid />
       </div>
@@ -53,13 +72,15 @@ const mapState = state => {
   return {
     user: state.user,
     name: state.user.name,
-    balance: state.user.balance
+    balance: state.user.balance,
+    toys: state.toys
   }
 }
 
 const mapDispatchToProps = dispatch => ({
   increaseThunk: () => dispatch(increaseThunk()),
-  decreaseThunk: () => dispatch(decreaseThunk())
+  decreaseThunk: () => dispatch(decreaseThunk()),
+  getAllToys: () => dispatch(getAllToys())
 })
 
 export default connect(mapState, mapDispatchToProps)(UserHome)

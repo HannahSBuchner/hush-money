@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
-  background-image: url('Unknown.jpeg');
+  padding-bottom: 50px;
+  /* background-image: url('Unknown.jpeg'); */
   background-repeat: no-repeat;
   height: 100%;
   background-size: cover;
@@ -58,6 +59,8 @@ form div {
 .buttons {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 0px;
 }
 .addbutton,
 .decbutton {
@@ -69,4 +72,78 @@ form div {
   text-align: center;
   background: transparent;
   border: none;
+}
+.resetbutton {
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  margin: 0 auto;
+}
+.reset {
+  font-family: 'Permanent Marker', cursive;
+  width: 80px;
+  height: 50px;
+  margin-top: 0;
+  padding-top: 0px;
+  font-size: 20px;
+  text-align: center;
+  background: transparent;
+  border: dotted;
+}
+.small-image {
+  width: 350px;
+  height: 350px;
+  margin-top: 0px;
+  image-rendering: auto;
+}
+h4 {
+  background-color: white;
+}
+.toy-grid {
+  display: flex;
+  background-color: white;
+  /* width: 800px; */
+  flex-direction: row;
+  /* flex-basis: auto; */
+  /* width: 350px;
+  height: 350px; */
+  justify-content: space-between;
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  padding-top: 50px;
+}
+.toy-grid2 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /* padding: 0;
+  margin: 0;
+  height: 100%;
+  background-position: 50% 50%;
+  flex-wrap: wrap;
+  flex-basis: auto;
+  margin-top: 50px; */
+  background-color: white;
+  padding-bottom: 50px;
+  width: 450px;
+  height: 450px;
+}
+.single-toy-square {
+  display: flex;
+  flex: 1 1 160px;
+  flex-direction: column;
+  margin-bottom: 0px;
+  background-color: white;
+  width: 450px;
+  font-family: 'Helvetica', sans-serif;
+  text-align: center;
+  text-justify: auto;
+}
+.single-toy-name {
+  font-size: 2em;
+  margin-bottom: 0px;
+  /* font-family: 'Helvetica', sans-serif; */
+}
+.pricefont {
+  font-family: 'Helvetica', sans-serif;
 }
