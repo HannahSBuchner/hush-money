@@ -7,7 +7,8 @@ import {
   Signup,
   UserHome,
   ProductsGrid,
-  ProductForGrid
+  ProductForGrid,
+  ProductForFutureGrid
 } from './components'
 import {me} from './store'
 
@@ -33,6 +34,7 @@ class Routes extends Component {
             <Route path="/home" component={UserHome} />
             <Route path="/home" component={ProductsGrid} />
             <Route path="/home" component={ProductForGrid} />
+            <Route path="/home" component={ProductForFutureGrid} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

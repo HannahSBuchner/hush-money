@@ -1,12 +1,14 @@
 body {
   font-family: sans-serif;
   padding-bottom: 50px;
-  /* background-image: url('Unknown.jpeg'); */
-  background-repeat: no-repeat;
-  height: 100%;
-  background-size: cover;
-  background-position: 50% 50%;
-  image-rendering: pixelated;
+  /* background-attachment: fixed; */
+  /* height: 100%;
+  /* background-position: 50% 50%; */
+  /* image-rendering: pixelated; */
+}
+
+.navarea {
+  background-color: white;
 }
 
 a {
@@ -19,8 +21,9 @@ label {
 
 nav a {
   display: inline-block;
-  font-family: Arial, Helvetica, sans-serif; /* margin: 1em; */
+  font-family: 'Lato', sans-serif;
   padding-left: 10px;
+  background-color: white;
 }
 
 form div {
@@ -28,7 +31,9 @@ form div {
   display: inline-block;
 }
 .hushmoneyheader {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Gochi Hand', cursive;
+  text-align: left;
+  background-color: white;
 }
 
 .acctbox {
@@ -36,19 +41,23 @@ form div {
   justify-content: center;
   flex-direction: column;
   margin-top: 25px;
-  padding-left: 20px;
+  /* padding-left: 20px; */
+
   /* color: #570683; */
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Gochi Hand', cursive;
+  background-image: url('https://i.ya-webdesign.com/images/coins-falling-png-gif-1.gif');
+  background-position: center;
 }
 .acctheader {
   display: flex;
   justify-content: center;
-  font-family: 'Permanent Marker', cursive;
+  flex-direction: column;
+  font-family: 'Gochi Hand', cursive;
 }
 .account {
   display: flex;
   justify-content: center;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Gochi Hand', cursive;
   margin-top: 10px;
 }
 .amount {
@@ -64,7 +73,7 @@ form div {
 }
 .addbutton,
 .decbutton {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Gochi Hand', cursive;
   width: 50px;
   height: 50px;
   margin-left: 20px;
@@ -80,7 +89,7 @@ form div {
   margin: 0 auto;
 }
 .reset {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Gochi Hand', cursive;
   width: 80px;
   height: 50px;
   margin-top: 0;
@@ -93,8 +102,17 @@ form div {
 .small-image {
   width: 350px;
   height: 350px;
-  margin-top: 0px;
+  margin: 0px;
+  padding: 0px;
   image-rendering: auto;
+}
+h1 {
+  text-align: center;
+  font-size: 50px;
+}
+h3 {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
 }
 h4 {
   background-color: white;
@@ -111,8 +129,64 @@ h4 {
   /* justify-content: center; */
   flex-wrap: wrap;
   padding-top: 50px;
+  width: 100%;
 }
+
 .toy-grid2 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /* padding: 0;
+  height: 100%;
+  background-position: 50% 50%;
+  flex-wrap: wrap;
+  flex-basis: auto;
+  margin-top: 50px; */
+  background-color: white;
+  padding-bottom: 50px;
+  width: 100%;
+  margin: 0 auto;
+  height: 450px;
+  background-color: transparent;
+}
+.single-toy-square {
+  display: flex;
+  flex: 1 1 160px;
+  flex-direction: column;
+  margin-bottom: 65px;
+  background-color: white;
+  width: 450px;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  text-justify: auto;
+}
+.single-toy-name {
+  font-size: 40px;
+  margin-bottom: 0px;
+  /* font-family: 'Helvetica', sans-serif; */
+}
+.pricefont {
+  font-family: 'Lato', sans-serif;
+}
+p {
+  text-align: center;
+}
+
+.futuretoy-grid {
+  display: flex;
+  background-color: white;
+  /* width: 800px; */
+  flex-direction: row;
+  /* flex-basis: auto; */
+  /* width: 350px;
+  height: 350px; */
+  justify-content: space-between;
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  padding-top: 50px;
+}
+.futuretoy-grid2 {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -128,22 +202,20 @@ h4 {
   width: 450px;
   height: 450px;
 }
-.single-toy-square {
+.single-futuretoy-square {
   display: flex;
   flex: 1 1 160px;
   flex-direction: column;
-  margin-bottom: 0px;
+  margin-bottom: 65px;
   background-color: white;
   width: 450px;
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
   text-align: center;
   text-justify: auto;
 }
-.single-toy-name {
-  font-size: 2em;
+.single-futuretoy-name {
+  font-size: 40px;
   margin-bottom: 0px;
   /* font-family: 'Helvetica', sans-serif; */
-}
-.pricefont {
-  font-family: 'Helvetica', sans-serif;
 }

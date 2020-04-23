@@ -9,7 +9,7 @@ export const ProductForGrid = props => {
         <h4>{toy.name}</h4>
         <img className="small-image" src={toy.image} alt="toy image" />
         <p className="pricefont">${toy.price}</p>
-        <a href={toy.image_url} className="button">
+        <a href={toy.image_url} className="button" target="_blank">
           Click to Purchase
         </a>
       </div>

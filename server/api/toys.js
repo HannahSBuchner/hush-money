@@ -21,3 +21,20 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/future', async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.user.id)
+    const acct = user.balance
+    const futuretoys = await Toy.findAll({
+      where: {
+        price: {
+          [Op.gt]: acct
+        }
+      }
+    })
+    res.json(futuretoys)
+  } catch (err) {
+    next(err)
+  }
+})

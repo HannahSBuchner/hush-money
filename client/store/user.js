@@ -8,6 +8,7 @@ const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
 const INCREASE_USER_BALANCE = 'INCREASE_USER_BALANCE'
 const DECREASE_USER_BALANCE = 'DECREASE_USER_BALANCE'
+const CLEAR_BALANCE = 'CLEAR_BALANCE'
 
 /**
  * INITIAL STATE
@@ -21,6 +22,10 @@ const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
 const increaseUserBalance = user => ({type: INCREASE_USER_BALANCE, user})
 const decreaseUserBalance = user => ({type: DECREASE_USER_BALANCE, user})
+const clearBalance = user => ({
+  type: CLEAR_BALANCE,
+  user
+})
 
 /**
  * THUNK CREATORS
@@ -63,7 +68,6 @@ export const logout = () => async dispatch => {
 
 export const increaseThunk = () => async dispatch => {
   try {
-    console.log('in the increase thunk')
     const {data} = await axios.put('api/users/increase')
     dispatch(increaseUserBalance(data))
   } catch (error) {
@@ -74,6 +78,15 @@ export const decreaseThunk = () => async dispatch => {
   try {
     const {data} = await axios.put('api/users/decrease')
     dispatch(decreaseUserBalance(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const clearThunk = () => async dispatch => {
+  try {
+    const {data} = await axios.put('api/users/clear')
+    dispatch(clearBalance(data))
   } catch (error) {
     console.error(error)
   }
@@ -90,6 +103,8 @@ export default function(state = defaultUser, action) {
     case INCREASE_USER_BALANCE:
       return action.user
     case DECREASE_USER_BALANCE:
+      return action.user
+    case CLEAR_BALANCE:
       return action.user
     default:
       return state

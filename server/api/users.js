@@ -46,3 +46,18 @@ router.put('/decrease', async (req, res, next) => {
     next(error)
   }
 })
+
+router.put('/clear', async (req, res, next) => {
+  try {
+    if (req.user) {
+      const user = await User.findOne({where: {id: req.user.id}})
+      user.balance = 0
+      await user.save()
+      res.json(user)
+    } else {
+      res.sendStatus(404)
+    }
+  } catch (error) {
+    next(error)
+  }
+})
