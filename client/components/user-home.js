@@ -32,42 +32,43 @@ class UserHome extends Component {
     const {balance, name} = this.props
 
     return (
-      <div className="acctbox">
-        <div className="acctheader">
-          <h1>
-            Hey, {name}! <br /> You've earned:
-          </h1>
+      <div>
+        <div className="acctbox">
+          <div className="acctheader">
+            <h1>
+              Hey, {name}! <br /> You've earned:
+            </h1>
+          </div>
+          <div className="account">
+            <h1 className="amount">${(balance / 100).toFixed(2)}</h1>
+          </div>
+          <div className="buttons">
+            <button
+              className="addbutton"
+              type="button"
+              onClick={() => this.handleIncrease()}
+            >
+              +
+            </button>
+            <button
+              className="decbutton"
+              type="button"
+              onClick={() => this.handleDecrease()}
+            >
+              -
+            </button>
+          </div>
+          <br />
+          <div className="resetbutton">
+            <button
+              className="reset"
+              type="button"
+              onClick={() => this.handleClear()}
+            >
+              Reset
+            </button>
+          </div>
         </div>
-        <div className="account">
-          <h1 className="amount">${(balance / 100).toFixed(2)}</h1>
-        </div>
-        <div className="buttons">
-          <button
-            className="addbutton"
-            type="button"
-            onClick={() => this.handleIncrease()}
-          >
-            +
-          </button>
-          <button
-            className="decbutton"
-            type="button"
-            onClick={() => this.handleDecrease()}
-          >
-            -
-          </button>
-        </div>
-        <br />
-        <div className="resetbutton">
-          <button
-            className="reset"
-            type="button"
-            onClick={() => this.handleClear()}
-          >
-            Reset
-          </button>
-        </div>
-        <br />
         <div className="acctheader">
           <div>
             <h1>You've got enough to buy a...</h1>
