@@ -25,7 +25,7 @@ export class ProductsGrid extends Component {
     this.props.getAllFutureToys()
   }
   render() {
-    const numberOfItems = this.state.showMore ? this.props.toys.length : 10
+    const numberOfItems = this.state.showMore ? this.props.toys.length : 8
     return (
       <div className="wholegrid">
         <div>
