@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {
-  Navbar,
   Login,
   Signup,
   UserHome,
@@ -27,16 +26,15 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route path="/" component={Navbar} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
+        <Route exact path="/" component={Login} />
+        <Route exact path="/" component={Signup} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={UserHome} />
-            <Route path="/home" component={ProductsGrid} />
-            <Route path="/home" component={ProductForGrid} />
-            <Route path="/home" component={ProductForFutureGrid} />
+            <Route exact path="/home" component={UserHome} />
+            <Route exact path="/home" component={ProductsGrid} />
+            <Route exact path="/home" component={ProductForGrid} />
+            <Route exact path="/home" component={ProductForFutureGrid} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
