@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 8080
 const app = express()
 const socketio = require('socket.io')
 module.exports = app
+// const favicon = require("./public/favicon.ico");
 
 // This is a global Mocha hook, used for resource cleanup.
 // Otherwise, Mocha v4+ never quits after tests.
@@ -46,6 +47,7 @@ const createApp = () => {
 
   // body parsing middleware
   app.use(express.json())
+  // app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
   app.use(express.urlencoded({extended: true}))
 
   // compression middleware
