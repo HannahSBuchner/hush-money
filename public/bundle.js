@@ -899,16 +899,16 @@ var Routes = /*#__PURE__*/function (_Component) {
         path: "/signup",
         component: _components__WEBPACK_IMPORTED_MODULE_4__["Signup"]
       }), isLoggedIn && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        path: "/home",
+        path: "/",
         component: _components__WEBPACK_IMPORTED_MODULE_4__["UserHome"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        path: "/home",
+        path: "/",
         component: _components__WEBPACK_IMPORTED_MODULE_4__["ProductsGrid"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        path: "/home",
+        path: "/",
         component: _components__WEBPACK_IMPORTED_MODULE_4__["ProductForGrid"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        path: "/home",
+        path: "/",
         component: _components__WEBPACK_IMPORTED_MODULE_4__["ProductForFutureGrid"]
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         component: _components__WEBPACK_IMPORTED_MODULE_4__["Login"]
@@ -1338,7 +1338,7 @@ var auth = function auth(name, email, password, method) {
               try {
                 dispatch(getUser(res.data));
                 console.log('pushing home');
-                _history__WEBPACK_IMPORTED_MODULE_1__["default"].push('/home');
+                _history__WEBPACK_IMPORTED_MODULE_1__["default"].push('/');
               } catch (dispatchOrHistoryErr) {
                 console.error(dispatchOrHistoryErr);
               }
